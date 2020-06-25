@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Tables in ReactJS
+        </title>
+        <!-- Include ReactJS and Babel Scripts -->
+        <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+        <!-- Styling -->
+        <style>
+            #renderObj {
+                background-color: whitesmoke;
+            }
+            #renderObj h1 {
+                font-size: 20px;
+                color: tomato;
+            }
+        </style>
+        <!-- Create ReactJS Components -->
+        <script type="text/babel">
+            class TableElement extends React.Component {
+                render() {
+                    return <div>
+                            {this.props.title}
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <td> Certification  </td>
+                                        <td> Issued By </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                    <td>Cassandra</td>
+                                    <td> DataStax </td>
+                                    </tr>
+                                    <tr>
+                                    <td>ReactJS</td>
+                                    <td>Udemy</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            {this.props.children}
+                           </div>
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div id="renderObj"></div>
+        <!-- Render React Components -->
+        <script type="text/babel">
+        ReactDOM.render(<TableElement title="Certifications List">
+                        </TableElement>,document.getElementById("renderObj"));
+        </script>
+    </body>
+</html>

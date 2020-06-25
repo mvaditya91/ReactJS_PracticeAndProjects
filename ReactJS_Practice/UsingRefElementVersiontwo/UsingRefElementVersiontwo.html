@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Using Reference Elements </title>
+        <!-- Include ReactJS and Babel Scripts -->
+        <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+        <!-- Styling -->
+        <style>
+            #renderObj {
+                background-color: whitesmoke;
+                text-align: center;
+            }
+        </style>
+        <!-- Create React Component -->
+        <script type="text/babel">
+            class LoginComponent extends React.Component {
+                LoginInstance(event) {
+                    console.log(this.refs.firstName.value);
+                    console.log(this.refs.lastName.value);
+                    console.log(this.refs.email.value);
+                    console.log(event.type);
+                }
+                render() {
+                    return <div>
+                            <p><b>First Name</b><input type="text" ref="firstName"/></p>
+                            <p><b>Last Name</b><input type="text" ref="lastName"/></p>
+                            <p><b>Email</b><input type="text" ref="email"/></p>
+                            <p><b>Click Here</b><button type="submit" onClick={this.LoginInstance.bind(this)}>
+                                <h1>Login</h1>
+                            </button></p>
+                           </div>
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div id="renderObj"></div>
+        <!-- Render React Components -->
+        <script type="text/babel">
+        ReactDOM.render(<LoginComponent/>,document.getElementById("renderObj"));
+        </script>
+    </body>
+</html>

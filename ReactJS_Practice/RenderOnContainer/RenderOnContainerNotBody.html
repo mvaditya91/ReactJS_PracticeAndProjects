@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title> Render into a Container </title>
+        <!-- Include script files for React, ReactDOM and Babel -->
+        <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="renderObj"></div>
+        <script type="text/babel">
+        ReactDOM.render(<h1> Render in a Container </h1>,document.getElementById("renderObj"));
+        </script>
+    </body>
+</html>

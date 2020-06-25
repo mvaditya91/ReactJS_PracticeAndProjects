@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Creating React Component Attributes and Children</title>
+        <!-- Include React and Babel Scripts -->
+        <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+        <!-- Include Styling -->
+        <Style>
+            #renderObj {
+                background-color: aliceblue;
+            }
+            #renderObj h1 {
+                font-size: 20px;
+                color: cadetblue;
+            }
+        </Style>
+        <!--Create React Element Attribute and Children-->
+        <script type="text/babel">
+        class Comp extends React.Component {
+            render() {
+                return <h1> Hello {this.props.name} {this.props.children} </h1>;
+            }
+        }
+        </script>
+    </head>
+    <body>
+        <div id="renderObj"></div>
+        <script type="text/babel">
+        ReactDOM.render(<div>
+                        <Comp name="Aditya">: <i> Maringanty </i></Comp>
+                        <Comp name="Maringanty">: <i> Aditya </i></Comp>
+                        </div>,document.getElementById("renderObj"));
+        </script>
+    </body>
+</html>

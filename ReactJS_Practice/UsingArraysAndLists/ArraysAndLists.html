@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Arrays and Lists </title>
+        <!-- Include ReactJS and Babel scripts -->
+        <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+        <!-- Styling -->
+        <style>
+            #renderObj {
+                background-color: whitesmoke;
+            }
+            #renderObj h1 {
+                font-size: 20px;
+                color: teal;
+            }
+        </style>
+        <!-- ReactJS Components -->
+        <script type="text/babel">
+        class ListElement extends React.Component {
+            render() {
+                var certifications = ['Cassandra Developer','ReactJS','Spring Java','AWS DevOps'];
+                var listElements = [];
+                for(var certification of certifications) {
+                    listElements.push(<li>{certification}</li>);
+                }
+                return <div> 
+                        <h1>
+                        {this.props.title}
+                        <ul>{listElements}</ul>
+                        {this.props.children}
+                        </h1>
+                       </div>
+            }
+        }
+        </script>
+    </head>
+    <body>
+        <div id="renderObj"></div>
+        <!-- Render ReactJS Components here -->
+        <script type="text/babel">
+        ReactDOM.render(<ListElement title="My Certifications List">
+                        I am Talented you see.
+                        </ListElement>,
+                        document.getElementById("renderObj"));
+        </script>
+    </body>
+</html>

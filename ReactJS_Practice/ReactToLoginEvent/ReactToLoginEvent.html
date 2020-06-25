@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Handling Login Event </title>
+        <!-- Include ReactJS and Babel Scripts -->
+        <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+        <!-- Styling -->
+        <style>
+            #renderObj {
+                background-color: whitesmoke;
+            }
+            #renderObj h1 {
+                font-size: 20px;
+                color: yellowgreen;
+            }
+        </style>
+        <!-- Create React Component -->
+        <script type="text/babel">
+        class LoginElement extends React.Component {
+            checkLogin() {
+                alert("Login Detected");
+                console.log("Login Detected");
+            }
+            render() {
+                return <div>
+                        <h1>
+                            {this.props.title}
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <td> Just login here. Hehehe. </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <input type="text"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="password"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                        <button type="submit" onClick={this.checkLogin}>Login</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </h1>
+                       </div>
+            }
+        }
+        </script>
+    </head>
+    <body>
+        <div id="renderObj"></div>
+        <!-- Render React Components here -->
+        <script type="text/babel">
+            ReactDOM.render(<LoginElement title="Login Here"/>,document.getElementById("renderObj"));
+        </script>
+    </body>
+</html>

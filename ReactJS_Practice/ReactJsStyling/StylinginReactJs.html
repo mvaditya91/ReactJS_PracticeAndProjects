@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Styling and State
+        </title>
+        <!-- Include React and Babel Scripts -->
+        <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+        <!-- Create React Components -->
+        <!-- State Can be set to only Objects -->
+        <script type="text/babel">
+            class StylingComponent extends React.Component {
+                initialCountries = {
+                    countries:['India','Israel','Australia','USA','UK']
+                };
+                newCountries = {
+                    countries:['India','USA','Israel','USA','UK','Australia']
+                };
+                constructor(props){
+                    super(props);
+                    this.state = this.initialCountries;
+                }
+                initialStyle = {
+                    backgroundColor: this.props.bgColor,
+                    textAlign:'center',
+                    fontSize:20,
+                }
+                onClicked(event) {
+                    this.setState(this.newCountries);
+                    console.log(event.type);
+                }
+
+                render() {
+                    return <div style={this.initialStyle}>
+                            <ul>
+                                {this.state.countries.map(country=><li>{country}</li>)}
+                            </ul>
+                            <button type="submit" onClick={this.onClicked.bind(this)}>Login</button>
+                           </div>
+                }
+
+            }
+        </script>
+    </head>
+    <body>
+        <div id="renderObj"></div>
+        <!-- Render React Components -->
+        <script type="text/babel">
+            ReactDOM.render(<StylingComponent bgColor="orange"/>,document.getElementById("renderObj"));
+        </script>
+    </body>
+</html>

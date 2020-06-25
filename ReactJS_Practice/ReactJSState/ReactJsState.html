@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Managing State
+        </title>
+        <!-- Include ReactJS and Babel Scripts -->
+        <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+        <!-- Include Styling -->
+        <style>
+            #renderObj {
+                background-color: floralwhite;
+            }
+            #renderObj h1 {
+                font-size: 20px;
+                color: royalblue;
+            }
+        </style>
+        <!-- Create ReactJS Components -->
+        <script type="text/babel">
+            class StateComponent extends React.Component {
+                constructor(props){
+                    super(props);
+                    this.state={certifications:['Cassandra','ReactJS','Spring Java','AWS DevOps']}
+                }
+                onClickEvent(event) {
+                    this.setState({certifications:['Cassandra','ReactJS','Spring Java','AWS DevOps','Docker & Kubernetes']});
+                    console.log(event.type);
+                }
+                render() {
+                    return <div>
+                            <h1>
+                                {this.props.title}
+                                <ul>
+                                    {this.state.certifications.map(course=><li>{course}</li>)}
+                                </ul>
+                                <button type="submit" onClick={this.onClickEvent.bind(this)}>Login</button>
+                            </h1>  
+                          </div>
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div id="renderObj"></div>
+        <!-- Render React Components Here -->
+        <script type="text/babel">
+            ReactDOM.render(<StateComponent title="Certifications List"/>,document.getElementById("renderObj"));
+        </script>
+    </body>
+</html>

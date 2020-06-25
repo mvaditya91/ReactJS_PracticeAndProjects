@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Complex Props and Child elements. 
+        </title>
+        <!-- Include React and Babel Scripts -->
+        <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+        <!-- Styling Component -->
+        <style>
+            #renderObj {
+                background-color: saddlebrown;
+            }
+            #renderObj h1 {
+                font-size: 20px;
+                color:snow;
+            }
+        </style>
+        <!-- Complex Components -->
+        <script type="text/babel">
+        class CustomerDetails extends React.Component {
+            render() {
+                return <div> 
+                        <h1> Customer Name: <br/>
+                        <CustomerName name={this.props.name}/>
+                        Contact: <br/>
+                        <CustomerContact contact={this.props.contact}/>
+                        Address: <br/>
+                        <CustomerAddress address={this.props.address}/>
+                        {this.props.children}
+                        </h1>
+                        </div>
+            }
+        };
+        class CustomerName extends React.Component {
+            render() {
+                return <div>
+                        <h1> 
+                             First Name: {this.props.name.firstName} <br/>
+                             Last Name: {this.props.name.lastName}
+                        </h1>
+                        </div>
+            }
+        };
+        class CustomerContact extends React.Component {
+            render() {
+             return    <div>
+                <h1>
+                    Email: {this.props.contact.email} <br/>
+                    Phone: {this.props.contact.phone}
+                </h1>
+                </div>
+            }
+        };
+        class CustomerAddress extends React.Component {
+            render() {
+                return <div>
+                        <h1>
+                        Street: {this.props.address.street}<br/>
+                        City:   {this.props.address.city}<br/>
+                        State:  {this.props.address.state}<br/>
+                        Country: {this.props.address.country}<br/>
+                        Zip Code: {this.props.address.zipCode}<br/>
+                        </h1>
+                       </div>
+            }
+        };
+        var nameOne = {
+            firstName: "Aditya",
+            lastName: "Maringanty"
+        };
+        var contactOne = {
+            email: "mvaditya91@gmail.com",
+            phone: "9162395059"
+        };
+        var addressOne = {
+            street: "Pioneer Square",
+            city: "Seattle",
+            state: "Washington",
+            country: "United States",
+            zipCode: "98109"
+        };
+        </script>
+    </head>
+
+    <body>
+        <div id="renderObj"></div>
+        <!-- Implement React Scripts Created in <head> section -->
+        <script type="text/babel">
+        ReactDOM.render(<div>
+                        <CustomerDetails name={nameOne} contact={contactOne} address={addressOne}>
+                        <h1> Record Found </h1> <br/>
+                        </CustomerDetails>
+                        </div>,
+                        document.getElementById("renderObj"));
+        </script>
+    </body>
+</html>

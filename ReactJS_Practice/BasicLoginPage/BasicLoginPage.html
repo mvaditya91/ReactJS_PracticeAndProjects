@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Basic Login Page </title>
+        <!-- Include React and Babel Scripts -->
+        <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+        <!-- Styling -->
+        <style>
+            #reactobj {
+                background-color: aliceblue;
+            }
+            #reactObj h1 {
+                font-size: 20px;
+                color: grey;
+                text-align: center;
+            }
+        </style>
+        <!-- Create Complex Login Element -->
+        <script type="text/babel">
+        class Login extends React.Component {
+            render() {
+                return  <div>
+                        <h1>
+                            {this.props.title} <br/>
+                            Username: <input type="text"/> <br/>
+                            Password: <input type="password"/> <br/>
+                            <button type="submit" value="submit"> Submit </button>
+                        </h1>
+                        <h1> {this.props.children} </h1>
+                        </div>
+            }
+        }
+        </script>
+    </head>
+    <body>
+        <div id="reactObj"></div>
+        <script type="text/babel">
+        ReactDOM.render(<div>
+                        <Login title="Login Here"> <br/>
+                        Hopefully without any issues hahaha 
+                        </Login>
+                        </div>,document.getElementById("reactObj"));
+        </script>
+    </body>
+</html>

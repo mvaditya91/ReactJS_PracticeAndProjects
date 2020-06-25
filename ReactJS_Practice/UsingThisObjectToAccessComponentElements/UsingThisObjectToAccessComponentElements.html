@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Using "this" Object
+        </title>
+        <!-- Include ReactJS and Babel Scripts-->
+        <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+        <!-- Styling -->
+        <style>
+            #renderObj {
+                background-color: whitesmoke;
+            }
+            #renderObj h1 {
+                font-size: 20px;
+                color: turquoise;
+            }
+        </style>
+        <!-- Creating React Components -->
+        <script type="text/babel">
+        class MyComponent extends React.Component {
+
+        onSubmit(event) {
+        event.preventDefault();
+        var firstName = this.fname.value;
+        var lastName = this.lname.value;
+        var emailAddress = this.email.value;
+        var passwd = this.passwd.value;
+        
+        console.log(firstName+'\n'+lastName+'\n'+emailAddress+'\n'+passwd);
+        console.log(event.type);
+        
+        }
+
+        render(){
+        return <div>
+        
+            <input type="text"  ref={(c) => this.fname = c} />
+            <input type="text"  ref={(c) => this.lname = c} />
+            <input type="text"  ref={(c) => this.email = c}  />
+            <input type="password"  ref={(c) => this.passwd = c}  />
+            <button type="button" onClick={this.onSubmit.bind(this)}>Save</button>    
+            
+            </div>
+        }
+}
+
+        </script>
+    </head>
+    <body>
+        <div id="renderObj"></div>
+        <!-- Render React Elements -->
+        <script type="text/babel">
+            ReactDOM.render(<MyComponent/>,document.getElementById("renderObj"));
+        </script>
+    </body>
+</html>

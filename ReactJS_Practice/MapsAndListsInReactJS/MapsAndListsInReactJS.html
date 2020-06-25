@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Maps and Lists
+        </title>
+        <!-- Include ReactJS and Babel Scripts -->
+        <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+        <!-- Styling -->
+        <style>
+            #renderObj {
+                background-color: whitesmoke;
+            }
+            #renderObj h1 {
+                font-size: 20px;
+                color: cadetblue;
+            }
+        </style>
+        <!-- Create ReactJS Elements here -->
+        <script type="text/babel">
+        class ListElement extends React.Component {
+            render() {
+                var certifications = ['Cassandra Developer','ReactJS','Spring Java','AWS DevOpos'];
+                return <div>
+                        <h1>
+                        {this.props.title}
+                        <ul>
+                        {certifications.map(certification=><li>{certification}</li>)}
+                        </ul>
+                        {this.props.children}
+                        </h1>
+                       </div>
+            }
+        }
+        </script>
+    </head>
+    <body>
+        <div id="renderObj"></div>
+        <!-- Render React Elements Here -->
+        <script type="text/babel">
+        ReactDOM.render(<ListElement title="My Certifications List">
+                        I am talented You See..
+                        </ListElement>,document.getElementById("renderObj"));
+
+        </script>
+    </body>
+</html>
